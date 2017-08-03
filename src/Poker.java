@@ -4,21 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Poker {
-	public static Carta[] ordenacao(Carta[] mao){
-		int tam = 5;
-
-		for (int fim = tam-1; fim > 0; --fim) {
-			for (int i = 0; i < fim; ++i) {
-				if (mao[i].getValor() > mao[i+1].getValor()) {
-					Carta aux = mao[i];
-					mao[i] = mao[i+1];
-					mao[i+1] = aux;
-				}
-			}
-		}
-		return mao;
-	}
 	public static void main(String[] args) throws IOException {
+		double horaInicio = System.currentTimeMillis(); //hora de inicio
+		
 		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/pokerK.txt"));
 		Jogador teste = null;
 		while(br.ready()){
@@ -91,7 +79,24 @@ public class Poker {
 			player2.setMao(temp);
 
 		}
-
+		double horaFim = System.currentTimeMillis(); //hora que terminou
+		
+		System.out.println("Tempo Gasto em segundos= "+((horaFim-horaInicio)/1000));
 	}
+	public static Carta[] ordenacao(Carta[] mao){
+		int tam = 4;
 
+		for (int fim = tam-1; fim > 0; --fim) {
+			for (int i = 0; i < fim; ++i) {
+				int v1 = mao[i].getValor();
+				int v2 = mao[i+1].getValor();
+				if (v1 > v2) {
+					Carta aux = mao[i];
+					mao[i] = mao[i+1];
+					mao[i+1] = aux;
+				}
+			}
+		}
+		return mao;
+	}
 }
