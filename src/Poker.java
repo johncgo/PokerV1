@@ -16,7 +16,8 @@ public class Poker {
 			Carta temp[] = new Carta[5];
 			int contador = 0;
 			row = row.replace(" ","");
-			for(int i = 0; i < ((row.length()/2)-2);i+=2){
+			
+			for(int i = 0; i < ((row.length()/2)-1);i+=2){
 				int valor;
 				char valorTmp = row.charAt(i);
 				char naipe = row.charAt(i+1);
@@ -37,7 +38,7 @@ public class Poker {
 					valor = 14;
 				}
 				else{
-					valor = (int)valorTmp;
+					valor = Character.getNumericValue(valorTmp);
 				}
 
 				temp[contador] = new Carta(valor, naipe);
@@ -47,7 +48,8 @@ public class Poker {
 			temp = ordenacao(temp);
 			player1.setMao(temp);
 			contador = 0;
-
+			temp = new Carta[5];
+			
 			for(int i = row.length()/2; i < row.length();i+=2){
 				int valor;
 				char valorTmp = row.charAt(i);
@@ -69,7 +71,7 @@ public class Poker {
 					valor = 14;
 				}
 				else{
-					valor = (int)valorTmp;
+					valor =  Character.getNumericValue(valorTmp);
 				}
 
 				temp[contador] = new Carta(valor, naipe);
@@ -77,23 +79,29 @@ public class Poker {
 			}
 			temp = ordenacao(temp);
 			player2.setMao(temp);
-
+			teste = player1;
 		}
 		double horaFim = System.currentTimeMillis(); //hora que terminou
 		
 		System.out.println("Tempo Gasto em segundos= "+((horaFim-horaInicio)/1000));
+		String cartas = "";
+		for(int i = 0; i < 5;i++){
+			cartas+= teste.mao[i].getValor();
+			cartas+= teste.mao[i].getNaipe();
+			cartas+= " ";
+		}
+		System.out.println(cartas);
 	}
 	public static Carta[] ordenacao(Carta[] mao){
-		int tam = 4;
-
-		for (int fim = tam-1; fim > 0; --fim) {
-			for (int i = 0; i < fim; ++i) {
-				int v1 = mao[i].getValor();
-				int v2 = mao[i+1].getValor();
+		System.out.println(mao.length);
+		for(int i = 0; i<5; i++){
+			for(int j = 0; j<=3; j++){
+				int v1 = mao[j].getValor();
+				int v2 = mao[j+1].getValor();
 				if (v1 > v2) {
-					Carta aux = mao[i];
-					mao[i] = mao[i+1];
-					mao[i+1] = aux;
+					Carta aux = mao[j];
+					mao[j] = mao[j+1];
+					mao[j+1] = aux;
 				}
 			}
 		}
