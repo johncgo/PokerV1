@@ -79,7 +79,7 @@ public class Poker {
 			}
 			temp = ordenacao(temp);
 			player2.setMao(temp);
-			teste = player1;
+			teste = player2;
 		}
 		double horaFim = System.currentTimeMillis(); //hora que terminou
 		
@@ -93,7 +93,6 @@ public class Poker {
 		System.out.println(cartas);
 	}
 	public static Carta[] ordenacao(Carta[] mao){
-		System.out.println(mao.length);
 		for(int i = 0; i<5; i++){
 			for(int j = 0; j<=3; j++){
 				int v1 = mao[j].getValor();

@@ -16,6 +16,6 @@ public class Jogador {
 	public void setMao(Carta[] mao) {
 		this.mao = mao;
 	}
-	
+	//acho melhor fazer as regras na classe jogador por que já tá instanciada ai fica suave
 	
 }
