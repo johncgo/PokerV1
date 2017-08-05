@@ -7,7 +7,7 @@ public class Poker {
 	public static void main(String[] args) throws IOException {
 		double horaInicio = System.currentTimeMillis(); //hora de inicio
 		
-		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/pokerK.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/pokerM.txt"));
 		Jogador teste = null;
 		while(br.ready()){
 			String row = br.readLine();
@@ -80,6 +80,18 @@ public class Poker {
 			temp = ordenacao(temp);
 			player2.setMao(temp);
 			teste = player2;
+			if(teste.trinca(teste.getMao())){
+				
+					String cartas = "";
+					for(int i = 0; i < 5;i++){
+						cartas+= teste.mao[i].getValor();
+						cartas+= teste.mao[i].getNaipe();
+						cartas+= " ";
+					}
+					System.out.println("tem trinca: " + cartas);
+				}
+				
+				
 		}
 		double horaFim = System.currentTimeMillis(); //hora que terminou
 		
@@ -90,7 +102,7 @@ public class Poker {
 			cartas+= teste.mao[i].getNaipe();
 			cartas+= " ";
 		}
-		System.out.println(cartas);
+		//System.out.println(cartas);
 	}
 	public static Carta[] ordenacao(Carta[] mao){
 		for(int i = 0; i<5; i++){
