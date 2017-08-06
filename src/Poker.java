@@ -7,12 +7,14 @@ public class Poker {
 	public static void main(String[] args) throws IOException {
 		double horaInicio = System.currentTimeMillis(); //hora de inicio
 		
-		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/poker100M.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/pokerM.txt"));
 		Jogador teste = null;
 		while(br.ready()){
 			String row = br.readLine();
 			Jogador player1 = new Jogador();
 			Jogador player2 = new Jogador();
+			
+			
 			Carta temp[] = new Carta[5];
 			int contador = 0;
 			row = row.replace(" ","");
@@ -80,8 +82,10 @@ public class Poker {
 			temp = ordenacao(temp);
 			player2.setMao(temp);
 			teste = player2;
+			
+			
 			//for usado apenas pra testar os metodos, pode colocar ai e mudar a variavel teste em cima pra p1 ou p2
-			if(teste.trinca(teste.getMao())){
+			if(teste.fullHouse(teste.getMao())){
 				
 					String cartas = "";
 					for(int i = 0; i < 5;i++){
@@ -89,7 +93,7 @@ public class Poker {
 						cartas+= teste.mao[i].getNaipe();
 						cartas+= " ";
 					}
-					System.out.println("tem trinca: " + cartas);
+					System.out.println("tem full house: " + cartas);
 				}
 				
 				

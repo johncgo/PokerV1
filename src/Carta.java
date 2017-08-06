@@ -3,6 +3,7 @@ public class Carta {
 	private char naipe;
 	private int valor;
 	
+	
 	public Carta(){
 		
 	}
