@@ -7,7 +7,7 @@ public class Poker {
 	public static void main(String[] args) throws IOException {
 		double horaInicio = System.currentTimeMillis(); //hora de inicio
 		
-		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/pokerK.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("C:/Users/Jonathan/workspace/Poker do gera/poker100M.txt"));
 		Jogador teste = null;
 		while(br.ready()){
 			String row = br.readLine();
@@ -81,7 +81,7 @@ public class Poker {
 			player2.setMao(temp);
 			teste = player2;
 			//for usado apenas pra testar os metodos, pode colocar ai e mudar a variavel teste em cima pra p1 ou p2
-			/*if(teste.trinca(teste.getMao())){
+			if(teste.trinca(teste.getMao())){
 				
 					String cartas = "";
 					for(int i = 0; i < 5;i++){
@@ -90,7 +90,7 @@ public class Poker {
 						cartas+= " ";
 					}
 					System.out.println("tem trinca: " + cartas);
-				}*/
+				}
 				
 				
 		}
